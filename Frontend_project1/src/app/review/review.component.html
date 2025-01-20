@@ -1,0 +1,62 @@
+<div class="review-container">
+  <h1 class="title">Product Reviews</h1>
+
+  <!-- Existing Reviews -->
+  <div *ngIf="reviews.length > 0; else noReviews">
+    <div class="review" *ngFor="let review of reviews">
+      <div class="review-header">
+        <span class="review-rating">
+          ★ {{ review.rating }}
+        </span>
+        <span class="review-author">{{ review.author }}</span>
+      </div>
+      <p class="review-comment">{{ review.comment }}</p>
+    </div>
+  </div>
+
+  <ng-template #noReviews>
+    <p class="no-reviews-message">No reviews yet. Be the first to leave a review!</p>
+  </ng-template>
+
+  <!-- Submit a Review -->
+  <div class="submit-review">
+    <h2>Leave a Review</h2>
+    <form (ngSubmit)="submitReview()" #reviewForm="ngForm">
+      <!-- Rating Input -->
+      <div class="form-group">
+        <label for="rating">Rating</label>
+        <select 
+          id="rating" 
+          name="rating" 
+          [(ngModel)]="newReview.rating" 
+          required 
+          #rating="ngModel">
+          <option value="" disabled selected>Select a rating</option>
+          <option *ngFor="let star of [1, 2, 3, 4, 5]" [value]="star">{{ star }} ★</option>
+        </select>
+        <div *ngIf="rating.invalid && rating.touched" class="error-message">
+          Please select a rating.
+        </div>
+      </div>
+
+      <!-- Comment Input -->
+      <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea 
+          id="comment" 
+          name="comment" 
+          [(ngModel)]="newReview.comment" 
+          required 
+          #comment="ngModel"
+          placeholder="Write your review here...">
+        </textarea>
+        <div *ngIf="comment.invalid && comment.touched" class="error-message">
+          Comment is required.
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-button" [disabled]="reviewForm.invalid">Submit Review</button>
+    </form>
+  </div>
+</div>

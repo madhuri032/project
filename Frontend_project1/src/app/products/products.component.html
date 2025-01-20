@@ -1,0 +1,14 @@
+<div class="products-container">
+  <h1 class="title"> Collections Product Items</h1>
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of products">
+      <img [src]="product.imageUrl" alt="{{ product.title }}" class="product-image" />
+      <div class="product-details">
+        <h2 class="product-title">{{ product.title }}</h2>
+        <p class="product-author">by {{ product.author }}</p>
+        <p class="product-price">Price: ₹{{ product.price }}</p>
+        <button class="buy-button" (click)="addToCart(product)">Buy Now</button>
+      </div>
+    </div>
+  </div>
+</div>

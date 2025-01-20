@@ -1,0 +1,101 @@
+<div class="container">
+  <h2>Register</h2>
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm" novalidate>
+    <div class="form-group">
+      <label for="uname">Username</label>
+      <input 
+        type="text" 
+        id="uname" 
+        class="form-control" 
+        [(ngModel)]="user.uname" 
+        name="uname" 
+        required
+        minlength="3"
+      />
+      <div *ngIf="registerForm.submitted && !registerForm.form.controls['uname']?.valid" class="error">
+        Username is required and should be at least 3 characters.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="uemail">Email</label>
+      <input 
+        type="email" 
+        id="uemail" 
+        class="form-control" 
+        [(ngModel)]="user.uemail" 
+        name="uemail" 
+        required
+      />
+      <div *ngIf="registerForm.submitted && !registerForm.form.controls['uemail']?.valid" class="error">
+        A valid email is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="upassword">Password</label>
+      <input 
+        type="password" 
+        id="upassword" 
+        class="form-control" 
+        [(ngModel)]="user.upassword" 
+        name="upassword" 
+        required
+        minlength="6"
+      />
+      <div *ngIf="registerForm.submitted && !registerForm.form.controls['upassword']?.valid" class="error">
+        Password is required and should be at least 6 characters.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="uaddress">Address</label>
+      <input 
+        type="text" 
+        id="uaddress" 
+        class="form-control" 
+        [(ngModel)]="user.uaddress" 
+        name="uaddress" 
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="uage">Age</label>
+      <input 
+        type="number" 
+        id="uage" 
+        class="form-control" 
+        [(ngModel)]="user.uage" 
+        name="uage" 
+        required
+        min="1"
+        max="120"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="uphonenumber">Phone Number</label>
+      <input 
+        type="text" 
+        id="uphonenumber" 
+        class="form-control" 
+        [(ngModel)]="user.uphonenumber" 
+        name="uphonenumber" 
+        required
+        pattern="^[0-9]{10}$"
+      />
+      <div *ngIf="registerForm.submitted && !registerForm.form.controls['uphonenumber']?.valid" class="error">
+        Phone number must be 10 digits.
+      </div>
+    </div>
+
+    <button 
+      type="submit" 
+      class="btn btn-primary" 
+      [disabled]="!registerForm.form.valid"
+    >
+      Register
+    </button>
+  </form>
+</div>

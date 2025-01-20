@@ -1,0 +1,75 @@
+.review-container {
+    padding: 20px;
+}
+
+.title {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.review {
+    margin-bottom: 15px;
+}
+
+.review-header {
+    font-weight: bold;
+}
+
+.review-rating {
+    color: #ffb400;
+}
+
+.review-author {
+    color: #555;
+}
+
+.review-comment {
+    font-style: italic;
+}
+
+.no-reviews-message {
+    font-size: 1.2em;
+    color: #888;
+}
+
+.submit-review h2 {
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+select {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.submit-button:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+}

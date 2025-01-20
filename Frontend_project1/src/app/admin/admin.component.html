@@ -1,0 +1,90 @@
+<div class="login-container">
+  <h2>Admin Login</h2>
+  <form (ngSubmit)="onLogin()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="adminCredentials.email"
+        class="form-control"
+        required
+        placeholder="Enter your email"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="adminCredentials.password"
+        class="form-control"
+        required
+        placeholder="Enter your password"
+      />
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+        Login
+        <span *ngIf="isLoading" class="loading-spinner">...</span>
+      </button>
+    </div>
+  </form>
+</div>
+
+<style>
+  .login-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .btn:hover {
+    background-color: #4cae4c;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .loading-spinner {
+    font-size: 14px;
+    font-weight: bold;
+  }
+</style>

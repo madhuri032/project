@@ -1,0 +1,38 @@
+<div class="order-container">
+  <div class="order" *ngFor="let order of orders">
+    <div class="order-header">
+      <h3>Order ID: {{ order.id }}</h3>
+      <p>Date: {{ order.date }}</p>
+      <p>Total: ₹{{ order.total }}</p>
+    </div>
+
+    <!-- Display Order Items -->
+    <div class="order-items">
+      <div class="order-item" *ngFor="let item of order.items">
+        <img [src]="item.image" alt="{{ item.name }}" class="item-image" />
+        <div class="item-details">
+          <p><strong>{{ item.name }}</strong></p>
+          <p>Quantity: {{ item.quantity }}</p>
+          <p>Price: ₹{{ item.price }} each</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Display Address Details -->
+    <div class="order-address">
+      <h4>Shipping Address</h4>
+      <p>{{ order.address.name }}</p>
+      <p>{{ order.address.street }}</p>
+      <p>{{ order.address.city }}, {{ order.address.zip }}</p>
+      <p>{{ order.address.country }}</p>
+    </div>
+
+    <!-- Display Payment Details -->
+    <div class="order-payment">
+      <h4>Payment Information</h4>
+      <p>Method: {{ order.payment.method }}</p>
+      <p>Status: {{ order.payment.paymentStatus }}</p>
+      <p>Card: {{ order.payment.cardNumber }}</p>
+    </div>
+  </div>
+</div>

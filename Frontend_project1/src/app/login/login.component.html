@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="login-box">
+            <!-- Login form section -->
+            <div class="login-left">
+                <h2>Login</h2>
+                <form (ngSubmit)="onLogin()">
+                    <div class="input-group">
+                        <input id="username" type="text" placeholder="Username" [(ngModel)]="loginObj.userName" name="username" required>
+                    </div>
+                    <div class="input-group">
+                        <input id="password" type="password" placeholder="Password" [(ngModel)]="loginObj.password" name="password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+            
+            <!-- Register form section -->
+            <div class="login-right">
+                <h2>Sign Up</h2>
+                <form (ngSubmit)="onRegister()">
+                    <div class="input-group">
+                        <input type="text" name="username" placeholder="Username" required [(ngModel)]="registerObj.userName">
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Email" required [(ngModel)]="registerObj.email">
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" placeholder="Password" required [(ngModel)]="registerObj.password">
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
